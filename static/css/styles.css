@@ -1,0 +1,26 @@
+.header {
+    background-color: #014380 !important;
+}
+
+.header .dropdown-menu {
+    background-color: #00284d !important;
+}
+
+body {
+    background-color: #f8f9fa;
+}
+
+.login-form {
+    width: 300px;
+    margin: 150px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#alert-logout {
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+}
