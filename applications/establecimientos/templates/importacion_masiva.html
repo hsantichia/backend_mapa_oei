@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+    <div class="container my-5">
+        <h1 class="mb-5">{{ title }}</h1>
+
+        {% if mensaje_exito %}
+            <div class="alert alert-success my-2">
+                {{ mensaje_exito }}
+            </div>
+        {% endif %}
+
+        {% if mensaje_error %}
+            <div class="alert alert-danger my-2">
+                {{ mensaje_error }}
+            </div>
+        {% endif %}
+
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% if columns %}
+                <div class="row">
+                    <h6 class="col-auto mb-0">Columnas requeridas: </h6>
+                    <div class="col-auto">
+                        <p>
+                            {% for column in columns %}
+                                <span class="badge bg-secondary">{{ column|safe }}</span>
+                            {% endfor %}
+                        </p>
+                    </div>
+                </div>
+            {% endif %}
+            <div class="mb-3">{{ form.archivo }}</div>
+            <button class="btn btn-success" type="submit">Cargar Archivo</button>
+        </form>
+    </div>
+{% endblock %}

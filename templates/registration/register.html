@@ -1,0 +1,58 @@
+{% load static %}
+{% include 'base.html' %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="container form-container">
+        <h2 class="mb-4">Registro de usuario</h2>
+        <div id="alert-registered">
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+        {% if form.errors %}
+            <div class="alert alert-danger" role="alert">
+                <strong>Error:</strong> Por favor, corrige los siguientes errores:
+                <ul>
+                    {% for field, errors in form.errors.items %}
+                        {% for error in errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+        <form method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="id_username" class="form-label">Nombre de usuario</label>
+                <input type="text" id="id_username" name="username" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="id_password1" class="form-label">Contraseña</label>
+                <input type="password" id="id_password1" name="password1" class="form-control" required>
+                <div class="form-text">{{ form.password1.help_text }}</div>
+            </div>
+            <div class="mb-3">
+                <label for="id_password2" class="form-label">Confirmar contraseña</label>
+                <input type="password" id="id_password2" name="password2" class="form-control" required>
+            </div>
+            <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox" id="is_staff" name="is_staff">
+                <label class="form-check-label" for="is_staff">Staff</label>
+            </div>
+            <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox" id="is_superuser" name="is_superuser">
+                <label class="form-check-label" for="is_superuser">Admin</label>
+            </div>
+            <button type="submit" class="btn btn-primary">Crear usuario</button>
+        </form>
+    </div>
+{% endblock %}

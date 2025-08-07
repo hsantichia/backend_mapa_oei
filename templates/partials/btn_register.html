@@ -1,0 +1,3 @@
+{% if request.user.is_superuser %}
+    <a href="{% url 'register_button' %}" class="btn btn-primary">Registrar usuario</a>
+{% endif %}

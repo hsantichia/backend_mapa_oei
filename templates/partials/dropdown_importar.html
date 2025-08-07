@@ -1,0 +1,95 @@
+{% if request.user.is_superuser %}
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+           aria-expanded="false">
+            Importar
+        </a>
+        <ul class="dropdown-menu">
+            <li><strong class="dropdown-header">Establecimientos</strong></li>
+            <li><a class="dropdown-item"
+                   href="{% url 'establecimientos:importar-universidad' %}">Universidad</a>
+            </li>
+            <li><a class="dropdown-item"
+                   href="{% url 'establecimientos:importar-facultad' %}">Facultad</a>
+            </li>
+            <li>
+                <a class="dropdown-item"
+                   href="{% url 'establecimientos:importar-establecimiento-universitario' %}">
+                    Establecimiento universitario
+                </a>
+            </li>
+            <li><a class="dropdown-item"
+                   href="{% url 'establecimientos:importar-escuela' %}">Escuela</a>
+            </li>
+            <li><a class="dropdown-item"
+                   href="{% url 'establecimientos:importar-establecimiento-no-universitario' %}">Establecimiento
+                no universitario</a></li>
+            <li><a class="dropdown-item"
+                   href="{% url 'establecimientos:importar-establecimiento-productivo' %}">Establecimiento
+                productivo</a></li>
+            <li>
+                <hr class="dropdown-divider">
+                <strong class="dropdown-header">Propiedades de establecimientos educativos</strong>
+            </li>
+            <li><a class="dropdown-item"
+                   href="{% url 'establecimientos:importar-gestion' %}">Gestión</a>
+            </li>
+            <li>
+                <hr class="dropdown-divider">
+                <strong class="dropdown-header">Estudio</strong>
+            </li>
+            <li><a class="dropdown-item" href="{% url 'establecimientos:importar-tipo-titulo' %}">Tipo
+                de
+                título</a>
+            </li>
+            <li><a class="dropdown-item" href="{% url 'establecimientos:importar-titulo' %}">Título</a>
+            </li>
+            <li><a class="dropdown-item" href="{% url 'establecimientos:importar-rama' %}">Rama de
+                estudio</a></li>
+            <li><a class="dropdown-item" href="{% url 'establecimientos:importar-area-de-estudio' %}">Área
+                de estudio</a></li>
+            <li><a class="dropdown-item" href="{% url 'establecimientos:importar-unidad-medida' %}">Unidad
+                de medida</a></li>
+            <li>
+                <a class="dropdown-item"
+                   href="{% url 'establecimientos:importar-estudios-universitarios' %}">
+                    Estudios universitarios
+                </a>
+            </li>
+            <li>
+                <a class="dropdown-item"
+                   href="{% url 'establecimientos:importar-estudios-no-universitarios' %}">
+                    Estudios no universitarios
+                </a>
+            </li>
+            <li>
+                <hr class="dropdown-divider">
+                <strong class="dropdown-header">Clasificadores de Actividad Económica</strong>
+            </li>
+            <li><a class="dropdown-item" href="{% url 'establecimientos:importar-letra' %}">Letra</a>
+            </li>
+            <li><a class="dropdown-item" href="{% url 'establecimientos:importar-clae2' %}">CLAE2</a>
+            </li>
+            <li>
+                <hr class="dropdown-divider">
+                <strong class="dropdown-header">Propiedades de establecimientos productivos</strong>
+            </li>
+            <li>
+                <a class="dropdown-item"
+                   href="{% url 'establecimientos:importar-dimension-empresa' %}">
+                    Tamaño de la empresa
+                </a>
+            </li>
+            <li>
+                <hr class="dropdown-divider">
+                <strong class="dropdown-header">Propiedades de ubicaciones</strong>
+            </li>
+            <li>
+                <a class="dropdown-item"
+                   href="{% url 'ubicaciones:importar-sectores-mayoritarios' %}">
+                    Sectores mayoritarios
+                </a>
+            </li>
+        </ul>
+    </li>
+{% endif %}

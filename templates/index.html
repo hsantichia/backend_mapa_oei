@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container mt-5">
+        <div id="alert-logout">
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h1 class="card-title">Bienvenido a la carga de datos</h1>
+                <p class="card-text">Nuestra plataforma utiliza una API desarrollada en Django y Django Rest Framework
+                    (DRF) como motor principal para el procesamiento de datos. Esta API facilita la visualización y
+                    exploración de información sobre establecimientos educativos y productivos. Integrada con PostgreSQL
+                    y la extensión PostGIS, gestiona eficientemente datos geoespaciales.</p>
+                <p class="card-text">Por favor, dirígete a la sección "Importar" para cargar archivos en formato XLSX o
+                    CSV y poblar las tablas.</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
